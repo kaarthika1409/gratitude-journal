@@ -34,7 +34,8 @@ export default function LoginPage() {
         />
         <button type="submit">Login</button>
         <button type="button" onClick={goToSignup} className="secondary-button">
-          Don't have an account? Sign Up
+          <p>This isn&apos;t your typical journal.</p>
+
         </button>
       </form>
     </div>
