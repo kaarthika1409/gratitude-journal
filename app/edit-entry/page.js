@@ -1,8 +1,9 @@
-"use client";
-import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
 
-export default function EditEntryPage() {
+import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useState, Suspense } from "react";
+
+function EditEntryClient() {
   const searchParams = useSearchParams();
   const index = parseInt(searchParams.get("index"));
   const router = useRouter();
@@ -37,5 +38,13 @@ export default function EditEntryPage() {
       <br />
       <button onClick={handleUpdate}>Update Entry</button>
     </div>
+  );
+}
+
+export default function EditEntryPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <EditEntryClient />
+    </Suspense>
   );
 }
